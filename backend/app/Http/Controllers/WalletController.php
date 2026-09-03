@@ -34,13 +34,13 @@ class WalletController extends Controller
         $wallet->increment('balance', $validated['amount']);
 
         $transaction = $request->user()->transactions()->create([
-            'type' => 'Top-up successful',
+            'type' => 'topup',
             'amount' => $validated['amount'],
             'description' => 'Wallet top up',
         ]);
 
         return response()->json([
-            'message' => 'Succesfull Top Up.',
+            'message' => 'Top-up successful.',
             'balance' => $wallet->fresh()->balance,
             'transaction' => $transaction,
         ]);
