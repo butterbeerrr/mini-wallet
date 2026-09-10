@@ -119,8 +119,8 @@ function TransactionHistory({ refreshKey }) {
                 <div className="divide-y divide-slate-100">
                     {transactions.map((transaction) => {
                         const isCredit =
-                            transaction.type === "credit" ||
-                            transaction.type === "topup";
+                            transaction.type === "topup" ||
+                            transaction.type === "transfer_in";
 
                         return (
                             <div
